@@ -6,37 +6,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="./public/styles/style.css">
     <title>Tech Blog</title>
   </head>
   <body>
     <container>
       <row>
-        <header class="header">
+        <header>
           <col>
-            <h1 class="title">
+            <h1>
               <a href="/">The Tech Blog</a>
             </h1>
           </col>
           <col>
             <nav>
               <ul>
-                {{#if loggedIn}}
+                {{!-- {{#if loggedIn}} --}}
 
                 <li>
-                  <a href="/blog">Home</a>
+                  <a href="/home">Blog</a>
                 </li>
                 <li>
-                  <a href="/classroom">Dashboard</a>
+                  <a href="/dashboard">Dashboard</a>
                 </li>
                     <li>
                         <a id="logout">Log Out</a>
                     </li>
-                {{else}}
+                {{!-- {{else}}
                     <li>
                         <a href="/login"></a>
                     </li>
-                {{/if}}
+                {{/if}} --}}
               </ul>
             </nav>
           <col>
@@ -49,7 +49,7 @@
 
   <footer>
   </footer>
-    {{#if loggedIn}}
+    {{!-- {{#if loggedIn}}
         <script src="/javascript/logout.js"></script>
-    {{/if}}
+    {{/if}} --}}
 </html>

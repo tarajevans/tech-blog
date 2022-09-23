@@ -1,0 +1,24 @@
+:root {
+    --primary-color: #231010;
+    --secondary-color: #d9ead3;
+}
+.header {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+}
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    list-style: none;
+  }
+  .title{
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 15px;
+  }
+  .visited a:visited{
+    /*color: black;*/
+  color: white;
+  }
