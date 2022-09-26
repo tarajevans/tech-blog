@@ -6,43 +6,42 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="./public/styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <title>Tech Blog</title>
   </head>
   <body>
-    <container>
-      <row>
         <header>
-          <col>
-            <h1>
-              <a href="/">The Tech Blog</a>
-            </h1>
-          </col>
-          <col>
             <nav>
+              <row>
               <ul>
                 {{!-- {{#if loggedIn}} --}}
 
                 <li>
-                  <a href="/home">Blog</a>
+                  <a href="/home">Home</a>
                 </li>
                 <li>
                   <a href="/dashboard">Dashboard</a>
                 </li>
-                    <li>
-                        <a id="logout">Log Out</a>
-                    </li>
+                <li>
+                  <a href="/login">Login</a>
+                </li>
+                <li>
+                  <a href="/logout">Logout</a>
+                </li>
                 {{!-- {{else}}
                     <li>
                         <a href="/login"></a>
                     </li>
                 {{/if}} --}}
               </ul>
+              </row>
+            <h1>
+              <span id="tech">
+                <a href="/">The Tech Blog</a>
+              </span>
+            </h1>
             </nav>
-          <col>
         </header>
-      </row>
-    </container>
   <main>
     {{{body}}}
   </main>

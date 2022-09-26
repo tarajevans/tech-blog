@@ -1,0 +1,56 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<main class="col-12 col-lg-9 d-flex flex-column">
+  <div class="m-5 row justify-content-around">
+    <div class="col-12 col-md-6 col-xl-3 mb-3">
+      <div class="card">
+        <h4 class="card-header bg-dark text-light">Register</h4>
+        <ul id="signup-form" class="signup-form">
+<form action="/api/users" method="post" enctype="multipart/form-data" id="register">
+            <li>
+                <label for="username">Username</label>
+                <input type="text" name="Username" id="username" name="name" class="form-input" required/>
+            </li>
+            <li>
+                <label for="passwprd">Password</label>
+                <input type="password" name="password" id="password1" class="form-input" required/>
+            </li>
+            <li>
+                <label for="password">Confirm Password</label>
+                <input type="password" name="password" id="password2" class="form-input"/>
+            </li>
+            <li>
+              <button type="submit">Register</button>
+            </li>
+            <li>
+              <a href="/login">login instead</button>
+            </li>
+          </form>
+        </ul>
+        <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
+      </div>
+    </div>
+  </div>
+</main>
+    
+
+
+
+  
+
+<script>
+
+   $("#password2").on('keyup', function(){
+    var password = $("#password-signup").val();
+    var confirmPassword = $("#password2").val();
+    if (password != confirmPassword)
+        $("#CheckPasswordMatch").html("Password does not match !").css("color": #AA3C39);
+    else
+        $("#CheckPasswordMatch").html("Password match !").css("color": #7A9E35);
+   });
+
+</script>
+
+<script src="/javascript/register.js"></script>

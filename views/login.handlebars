@@ -1,33 +1,29 @@
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
+<main class="col-12 col-lg-9 d-flex flex-column">
+  <div class="m-5 row justify-content-around">
+    <div class="col-12 col-md-6 col-xl-3 mb-3">
+      <div class="card">
+        <h4 class="card-header bg-dark text-light">Login</h4>
+        <ul id="login-form" class="login-form">
+          <form class="login-form">
+            <li>
+              <label for="email-login">username:</label>
+              <input type="text" id="username-login" />
+            </li>
+            <li>
+              <label for="password-login">password:</label>
+              <input type="password" id="password-login" />
+            </li>
+            <li>
+              <button type="submit">login</button>
+            </li>
+            <li>
+              <a href="/register">signup instead</button>
+            </li>
+          </form>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
-
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
-
+</main>
+  
 <script src="/javascript/login.js"></script>

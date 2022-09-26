@@ -1,24 +1,46 @@
-:root {
-    --primary-color: #231010;
-    --secondary-color: #d9ead3;
+* {
+  font-family: Helvetica, Arial, sans-serif;
 }
-.header {
-    background: var(--primary-color);
-    color: var(--secondary-color);
+:root {
+  --primary-color: #231010;
+  --secondary-color: #d9ead3;
+}
+body {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+}
+header {
+  padding: 20px 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: var(--primary-color);
+}
+header a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+header nav {
+  margin: 7px 0;
 }
 header nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: start;
-    list-style: none;
-  }
-  .title{
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    border-radius: 15px;
-  }
-  .visited a:visited{
-    /*color: black;*/
-  color: white;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:start;
+  align-items:left;
+  list-style: none;
+}
+header nav ul li a {
+  padding: 10px 15px;
+  font-weight: lighter;
+  font-size: 1.25vw;
+}
+#tech {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 5px;
+  padding: 5px,10px;
+  font-size: 36px;
+  box-shadow: 10 10 5px rgba(119, 117, 117, 0.5);
+}
