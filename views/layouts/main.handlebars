@@ -9,46 +9,43 @@
     <link rel="stylesheet" href="../styles/style.css">
     <title>Tech Blog</title>
   </head>
-  <body>
-        <header>
-            <nav>
-              <row>
-              <ul>
+  <header>
+
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link home" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link dashboard" href="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link login" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link logout" href="/logout">Logout</a>
+      </li>
+    </ul>
+        <h1 class="card-title" href="/"><span>The Tech Blog</span></h1>
+  </div>
+</div>
+</header>
+
                 {{!-- {{#if loggedIn}} --}}
 
-                <li>
-                  <a href="/home">Home</a>
-                </li>
-                <li>
-                  <a href="/dashboard">Dashboard</a>
-                </li>
-                <li>
-                  <a href="/login">Login</a>
-                </li>
-                <li>
-                  <a href="/logout">Logout</a>
-                </li>
                 {{!-- {{else}}
                     <li>
                         <a href="/login"></a>
                     </li>
                 {{/if}} --}}
-              </ul>
-              </row>
-            <h1>
-              <span id="tech">
-                <a href="/">The Tech Blog</a>
-              </span>
-            </h1>
-            </nav>
-        </header>
-  <main>
+
+  <body>
     {{{body}}}
-  </main>
+  </body>
 
   <footer>
   </footer>
-    {{!-- {{#if loggedIn}}
         <script src="/javascript/logout.js"></script>
-    {{/if}} --}}
 </html>

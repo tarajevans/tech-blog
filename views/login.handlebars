@@ -1,29 +1,33 @@
-<main class="col-12 col-lg-9 d-flex flex-column">
-  <div class="m-5 row justify-content-around">
-    <div class="col-12 col-md-6 col-xl-3 mb-3">
-      <div class="card">
-        <h4 class="card-header bg-dark text-light">Login</h4>
-        <ul id="login-form" class="login-form">
+<container>
+<row>
+<div class="card" style="width: 85%;">
+  <div class="card-header">
+        <h3 class="card-title"><span>Login</span></h3>
+  </div>
+  <div class="card-body">
+<ul id="login-form" class="login-form">
           <form class="login-form">
             <li>
-              <label for="email-login">username:</label>
+              <label for="username-login">Username:</label><br>
               <input type="text" id="username-login" />
             </li>
             <li>
-              <label for="password-login">password:</label>
+              <label for="password-login">Password:</label><br>
               <input type="password" id="password-login" />
             </li>
             <li>
-              <button type="submit">login</button>
+              <button class="login" type="submit">Login</button>
             </li>
             <li>
-              <a href="/register">signup instead</button>
+              <a href="/register">Signup instead</button>
             </li>
           </form>
         </ul>
-      </div>
-    </div>
+
+
+    <a href="#" class="login">Submit</a>
   </div>
-</main>
-  
+</div>
+</row>
+  </container>
 <script src="/javascript/login.js"></script>

@@ -6,51 +6,45 @@
   <div class="m-5 row justify-content-around">
     <div class="col-12 col-md-6 col-xl-3 mb-3">
       <div class="card">
-        <h4 class="card-header bg-dark text-light">Register</h4>
-        <ul id="signup-form" class="signup-form">
-<form action="/api/users" method="post" enctype="multipart/form-data" id="register">
-            <li>
-                <label for="username">Username</label>
-                <input type="text" name="Username" id="username" name="name" class="form-input" required/>
-            </li>
-            <li>
-                <label for="passwprd">Password</label>
-                <input type="password" name="password" id="password1" class="form-input" required/>
-            </li>
-            <li>
-                <label for="password">Confirm Password</label>
-                <input type="password" name="password" id="password2" class="form-input"/>
-            </li>
-            <li>
-              <button type="submit">Register</button>
-            </li>
-            <li>
-              <a href="/login">login instead</button>
-            </li>
-          </form>
-        </ul>
-        <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
+        <h4 class="card-header">Register</h4>
+            <form action="/api/users" method="post" enctype="multipart/form-data" id="register" class="register">
+                <ul>
+                    <li>
+                        <label for="username">Username</label><br>
+                        <input type="text" name="Username" id="username" name="name" class="form-input" required/>
+                    </li>
+                    <li>
+                        <label for="passwprd">Password</label><br>
+                        <input type="password" name="password" id="password1" class="form-input" required/>
+                    </li>
+                    <li>
+                        <label for="password">Confirm Password</label><br>
+                        <input type="password" name="password" id="password2" class="form-input"/>
+                        <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
+                    </li>
+                    <li>
+                        <button class="login" type="submit">Register</button>
+                    </li>
+                    <li>
+                        <a href="/login">login instead</button>
+                    </li>
+                </ul>
+            </form>
       </div>
     </div>
   </div>
 </main>
-    
-
-
-
-  
+      
 
 <script>
-
    $("#password2").on('keyup', function(){
-    var password = $("#password-signup").val();
-    var confirmPassword = $("#password2").val();
-    if (password != confirmPassword)
-        $("#CheckPasswordMatch").html("Password does not match !").css("color": #AA3C39);
-    else
-        $("#CheckPasswordMatch").html("Password match !").css("color": #7A9E35);
-   });
-
+        var password = $("#password1").val();
+        var confirmPassword = $("#password2").val();
+        if (password != confirmPassword)
+            $("#CheckPasswordMatch").html("Password does not match !").css("color": "red");
+        else
+            $("#CheckPasswordMatch").html("Password match !").css("color": "green");
+    });
 </script>
 
 <script src="/javascript/register.js"></script>

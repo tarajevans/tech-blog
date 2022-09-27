@@ -9,38 +9,79 @@ body {
   color: var(--primary-color);
   background: var(--secondary-color);
 }
-header {
+container {
+  margin: 5px;
+  padding: 5px,10px;
+  size: 75%;
+}
+.card-header {
   padding: 20px 20px;
   justify-content: space-between;
   flex-wrap: wrap;
   background: var(--primary-color);
 }
-header a {
+.card-header a {
   text-decoration: none;
   color: var(--secondary-color);
+  padding: 10px 15px;
+  font-weight: lighter;
+  font-size: 1.25vw;
 }
-header nav {
-  margin: 7px 0;
-}
-header nav ul {
+.nav-item {
   display: flex;
   flex-wrap: wrap;
   justify-content:start;
   align-items:left;
   list-style: none;
+  display: inline-block;
 }
-header nav ul li a {
-  padding: 10px 15px;
-  font-weight: lighter;
-  font-size: 1.25vw;
-}
-#tech {
-  background: var(--secondary-color);
+.card-title {
   color: var(--primary-color);
-  border-radius: 10px;
   font-weight: bold;
   margin: 5px;
   padding: 5px,10px;
-  font-size: 36px;
   box-shadow: 10 10 5px rgba(119, 117, 117, 0.5);
+}
+.card-title span {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px,10px;
+}
+.card {
+  justify-content: center;
+  border-style: solid;
+  border-color: var(--primary-color);
+  margin: 5px,10px;
+  padding: 10px, 10px;
+}
+.card-header  {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  margin: 5px,0;
+  padding: 10px, 0;
+}
+.login-form {
+  list-style: none;
+  margin: 5px,10px;
+  padding: 10px, 10px;
+}
+.login-form li {
+  font-size: 1.5rem;
+}
+.login-form li input{
+  border-radius: 5px;
+  width: 95%;
+  line-height: 1.5rem;
+}
+.login {
+  border-radius: 5px;
+  width: 95%;
+  line-height: 1.5rem;
+  background-color: grey;
+  content: center;
+  }
+.container {
+  margin: 10px;
+  padding: 10px;
 }

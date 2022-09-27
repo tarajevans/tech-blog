@@ -23,29 +23,32 @@ const userController = {
         // expects {email: 'yourEmail@yourDomain.whatever', password: 'password1234'}
         User.findOne({
           where: {
-            email: req.body.email,
+            username: req.body.username,
           },
         })
-          .then((dbUsersData) => {
-            if (!dbUsersData) {
+          .then((dbUserData) => {
+            if (!dbUserData) {
               res.status(400).json({ message: "No user with that name!" });
               return;
             }
-            //res.json({ user: dbUserData });
-    
+            
             // Verify user
-            const isValidPassword = dbUsersData.checkPassword(req.body.password);
+            const isValidPassword = dbUserData.checkPassword(req.body.password);
             if (!isValidPassword) {
               res.status(400).json({ message: "Incorrect password!" });
               return;
             }
-            req.session.save(() => {
-              req.session.user_id = dbUsersData.id;
-              req.session.username = dbUsersData.username;
+            // req.session.save(() => {
+              req.session.user_id = dbUserData.id;
+              req.session.username = dbUserData.username;
+              req.session.email = dbUserData.email;
               req.session.loggedIn = true;
-            });
+              req.session.save();
+            
+              // });
+            console.log(req.session.email + ' ' + req.session.username + ' ' + req.session.user_id + ' ' + 'Line 47');
               res.json({
-                user: dbUsersData.username,
+                user: dbUserData.username,
                 message: "You are now logged in",
               });
           })
@@ -53,6 +56,18 @@ const userController = {
             console.log(err);
             res.status(500).json(err);
           });
+      },
+
+      logout: (req, res) => {
+        if(req.session){
+          req.session.destroy((err) => {
+            console.log("LOG OUT CALLED");
+            res.render('homepage');
+          });  
+        }else{
+          res.render('homepage');
+        }
+                
       },
 };
 
