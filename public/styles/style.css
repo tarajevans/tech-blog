@@ -12,7 +12,6 @@ body {
 container {
   margin: 5px;
   padding: 5px,10px;
-  size: 75%;
 }
 .card-header {
   padding: 20px 20px;
@@ -44,7 +43,7 @@ container {
 }
 .card-title span {
   background: var(--secondary-color);
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 5px;
   padding: 5px,10px;
 }
@@ -74,14 +73,30 @@ container {
   width: 95%;
   line-height: 1.5rem;
 }
-.login {
+.login-btn {
   border-radius: 5px;
-  width: 95%;
+  width: 80%;
   line-height: 1.5rem;
   background-color: grey;
-  content: center;
+  color:white;
+  text-align: center;
+  font-size: 1.5rem;
   }
+.login-form textarea {
+  border-style: solid;
+  border-color: var(--primary-color);
+  width: 95%;
+}
 .container {
   margin: 10px;
   padding: 10px;
+}
+.button {
+  text-align: center;
+}
+.post-btn {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  
 }

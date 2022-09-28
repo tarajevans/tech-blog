@@ -1,11 +1,19 @@
-<article class="challenges priya-hero-form">
-  <div class="title">
-    <h2>{{title}}</h2>
-  </div>
-  <div class="meta">
-   {{content_txt}} 
-   by {{user.username}} on {{format_date createdAt}}
-    
-    {{comments.length}} {{format_plural "comment" comments.length}}
-  </div>
+<article class="blog-post">
+  <container>
+    <row>
+      <div class="card">
+        <div class="card-header">
+          <div class="title"><h2>{{title}}</h2>
+            by {{user.username}} on {{format_date createdAt}}
+          </div>
+            <div class="card-body">
+              <div class="meta">
+                {{content_txt}} 
+                {{comments.length}} {{format_plural "comment" comments.length}}
+              </div>
+            </div>
+        </div>
+      </div>
+    </row>
+  </container>
 </article>

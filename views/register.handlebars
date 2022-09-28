@@ -1,14 +1,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
-
-<main class="col-12 col-lg-9 d-flex flex-column">
-  <div class="m-5 row justify-content-around">
-    <div class="col-12 col-md-6 col-xl-3 mb-3">
-      <div class="card">
-        <h4 class="card-header">Register</h4>
+<container>
+    <row>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><span>Register</span></h3>
+            </div>
             <form action="/api/users" method="post" enctype="multipart/form-data" id="register" class="register">
-                <ul>
+                <ul id="login-form" class="login-form">
                     <li>
                         <label for="username">Username</label><br>
                         <input type="text" name="Username" id="username" name="name" class="form-input" required/>
@@ -19,21 +18,22 @@
                     </li>
                     <li>
                         <label for="password">Confirm Password</label><br>
-                        <input type="password" name="password" id="password2" class="form-input"/>
+                        <input type="password" name="password" id="password2" class="form-input"/><br><br>
                         <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
                     </li>
                     <li>
-                        <button class="login" type="submit">Register</button>
+                        <div class="button">
+                        <button class="login-btn" type="submit">Register</button><br><br>
+                        </div>
                     </li>
                     <li>
                         <a href="/login">login instead</button>
                     </li>
                 </ul>
             </form>
-      </div>
-    </div>
-  </div>
-</main>
+        </div>
+    </row>
+</container>
       
 
 <script>

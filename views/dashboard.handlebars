@@ -1,29 +1,37 @@
 <container>
-    <!-- used to check if logged in or not when testing-->
-    <!-- <p style="color: black;">loggedIn: {{loggedIn}}</p> -->
     <row>
-        <col>
-            <h2>{{form_title}}</h2><br>
-            <form action="/api/posts" method="post" id="post-form" enctype="multipart/form-data">
-                <label for="tilte">{{label_title}}:</label>
-                <input minlength="5" required type="text" name="title" id="title" class="form-input"/>
-                <label for="content_txt">{{label_content}}:</label>
-                <textarea minlength="5" required type="text" name="content_txt" id="content_txt" cols="30" rows="10"
-                          class="form-input"></textarea>
-                {{#if file_included}}
-                <label for="attached_file">Attachment:</label>
-                <input required type="file" id="file" name="file" class="form-input"/>
-                {{/if}}
-                <input type="text" id="type" name="type" value="{{type}}" style="display: none" />
-                <button class="priya-hero-form" type="submit">Submit</button>
-            </form>
-        </col>
-        <row>
-            <col class="visited">
-            {{#each posts as |post|}}
-                {{> challenge post}}
-            {{/each}}
-            </col>
-        </row>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">{{form_title}}</h3><br>
+            </div>
+                <div class="card-body">
+                    <form action="/api/dashboard/createPost" method="post" id="post-form" enctype="multipart/form-data" class="login-form">
+                        <ul class="login-form">
+                            <li>
+                                <label for="title">{{label_title}}Title:</label>
+                            </li>
+                            <li>
+                                <input minlength="5" required type="text" name="title" id="title"/>
+                            </li>
+                            <li>
+                                <label for="content_txt">{{label_content}}Content:</label>
+                            </li>
+                            <li>
+                                <textarea minlength="5" required type="text" name="content_txt" id="content_txt" cols="30" rows="10"></textarea>
+                            </li>
+                            <li>
+                                <div class="button">
+                                    <button class="post-btn" type="submit"> + New Post</button><br><br>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="button">
+                                    <button class="post-btn" type="submit"> + Edit Post</button><br><br>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+        </div>
     </row>
 </container>
