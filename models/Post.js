@@ -1,5 +1,7 @@
-const { Sequelize, Model, DataTypes } = require("sequelize");
+const { Sequelize, Model, DataTypes, DATE } = require("sequelize");
 const sequelize = require("../config/connection");
+const User = require("./User");
+const Comment = require("./Comment");
 // create our Post model
 class Post extends Model {}
 // create fields/columns for Post model
@@ -22,9 +24,17 @@ Post.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "users",
-        key: "id",
+        model: User,
+        key: 'id',
       },
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: Date.now,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: Date.now,
     },
   },
   {
@@ -36,3 +46,4 @@ Post.init(
 );
 
 module.exports = Post;
+

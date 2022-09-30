@@ -6,7 +6,7 @@
             <div class="card-header">
                 <h3 class="card-title"><span>Register</span></h3>
             </div>
-            <form action="/api/users" method="post" enctype="multipart/form-data" id="register" class="register">
+            <form id="register" class="register">
                 <ul id="login-form" class="login-form">
                     <li>
                         <label for="username">Username</label><br>
@@ -23,7 +23,7 @@
                     </li>
                     <li>
                         <div class="button">
-                        <button class="login-btn" type="submit">Register</button><br><br>
+                        <button class="login-btn" id="registerBtn" type="submit">Register</button><br><br>
                         </div>
                     </li>
                     <li>
@@ -40,10 +40,11 @@
    $("#password2").on('keyup', function(){
         var password = $("#password1").val();
         var confirmPassword = $("#password2").val();
-        if (password != confirmPassword)
-            $("#CheckPasswordMatch").html("Password does not match !").css("color": "red");
-        else
-            $("#CheckPasswordMatch").html("Password match !").css("color": "green");
+        if (password != confirmPassword){
+            $("#CheckPasswordMatch").html("Password does not match !").css("color", "red");
+        }else{
+            $("#CheckPasswordMatch").html("Password match !").css("color", "green");
+        }
     });
 </script>
 

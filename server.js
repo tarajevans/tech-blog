@@ -4,6 +4,8 @@ const sequelize = require("./config/connection");
 const routes = require("./routes");
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const {Post, User, Comment} = require ("./models");
+
 
 const path = require("path");
 
@@ -15,18 +17,18 @@ const helpers = require("./utils/helpers");
 
 const hbs = exphbs.create({ helpers });
 
-const myStore = new SequelizeStore ({
+const myStore = new SequelizeStore({
   db: sequelize,
 });
 
 const sess = {
-  secret: 'Super secret secret',
+  secret:'Kepping it safe',
+  name:'tech-blog',
   cookie: {},
   resave: false,
   saveUninitialized: true,
-  name: 'tech-blog',
   maxAge: 600000,
-  store: myStore
+  store: myStore,
 };
 
 app.engine("handlebars", hbs.engine);
@@ -41,8 +43,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 myStore.sync();
+//Post.sync({force:true});
 
-// sequelize.sync({ force: false }).then(() => {
+
+sequelize.sync({ force: false }).then(() => {
     //One method/function that starts the server
     app.listen(PORT, () => console.log("Now listening on port " + PORT));
-  // });
+  });

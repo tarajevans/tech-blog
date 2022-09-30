@@ -3,16 +3,15 @@ const { User } = require("../models");
 const userController = {
     // create a user in the DB base on sorm submition information. 
     createUser: (req, res) => {
+      console.log('create user called with username: ' + req.body.username + ' and password of: ' + req.body.password);
         User.create({
             username:req.body.username,
             password: req.body.password,
-            email: req.body.email,
         }).then((userData) => {
-            req.session.save(() => {
-                req.session.user_id = userData.id;
-                req.session.username = userData.username;
-                req.session.loggedIn = true;
-            });
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+            req.session.save();
         }).catch((err) => {
             console.log(err);
             res.status(500).json(err);
