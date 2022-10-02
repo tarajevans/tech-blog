@@ -34,8 +34,6 @@ const dashboardController = {
                 nest:true,
                 raw:true,
             }).then((postComments) => {
-                console.log(singlePost);
-                console.log(postComments);
                 res.render('single-post', {singlePost, postComments});
             })
         }).catch((err) => {
@@ -81,7 +79,6 @@ const dashboardController = {
              raw:true,
              nest: true,
         }).then((posts) => {
-            let commentCount;
             for (let i = 0; i<posts.length; i++){
                 Comment.findAll({
                     where: {post_id:posts[i].id}
