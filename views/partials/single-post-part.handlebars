@@ -1,5 +1,4 @@
-<a href="/single-post/{{id}}">
-  <li>
+<li>
     <article class="blog-post">
       <container><data postId="{{id}}"></data>
         <row>
@@ -10,8 +9,8 @@
               </div>
                 <div class="card-body">
                   <div class="meta">
-                    {{content_txt}}<br><br>
-                    {{commentCount}} {{format_plural "comment" commentCount}}
+                    {{this.content_txt}} 
+                    {{comments.length}} {{format_plural "comment" comments.length}}
                   </div>
                 </div>
             </div>
@@ -19,4 +18,3 @@
         </row>
       </container>
     </article>
-  </li>
