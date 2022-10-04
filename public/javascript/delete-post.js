@@ -1,6 +1,7 @@
+
 function deletePost(id) {
     event.preventDefault();
-    fetch(`/api/posts/deletePost/${id}`, {
+    fetch(`/api/posts/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

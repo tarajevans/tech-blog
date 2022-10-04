@@ -18,7 +18,7 @@ User.init(
     id: {
       // use the special Sequelize DataTypes object provide what type of data it is
       type: DataTypes.INTEGER,
-      // this is the equivalent of SQL's NOT NULL option
+      // this is the equivalent of SQL's `NOT NULL` option
       allowNull: false,
       // instruct that this is the Primary Key
       primaryKey: true,
