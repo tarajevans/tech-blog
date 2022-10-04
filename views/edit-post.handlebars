@@ -5,30 +5,36 @@
   </h2>
   <form class="edit-post-form">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <input name="post-title" type="text" value="{{singlePost.title}}" />
     </div>
     <div>
-        by you on {{format_date post.created_at}}
+      <input name="post-content" type="text" value="{{singlePost.content_txt}}" />
+    </div>
+    <div>
+        by you on {{format_date singlePost.createdAt}}
       |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      <a href="/post/{{singlePost.id}}">{{singlePost.commentCount}} {{format_plural "comment" singlePost.commentCount}}</a>
     </div>
     <button class="hero-form" type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+   <button id="btnDeletePost_{{singlePost.id}}" onclick="deletePost({{singlePost.id}})">DELETE</button>
   </form>
 </article>
 
-<form class="comment-form">
+<form class="comment-form priya-hero-form">
   <div>
-    <textarea name="comment-body"></textarea>
+
+    <textarea required minlength="3" name="comment-body" id="comment_body"></textarea>
+
   </div>
 
   <div>
-    <button class="hero-form" type="submit">add comment</button>
+    <button class="hero-form" id="create-comment-btn">add comment</button>
   </div>
 </form>
 
-{{> comments post.comments}}
+{{#each postComments as |comments|}}
+{{> comments comments}}
+    {{/each}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

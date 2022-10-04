@@ -7,9 +7,9 @@ router.get('/', dashboardController.showAllPostsHomepage);
 
 router.get('/homepage', dashboardController.showAllPostsHomepage);
 
-router.get('/test', dashboardController.showAllPostsHomepage);
+router.get('/edit-post/:id', withAuth, dashboardController.loadEditPost);
 
-router.get('/create-post', (req, res) => {
+router.get('/create-post', withAuth, (req, res) => {
   res.render('create-post');
 });
 
@@ -17,13 +17,9 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/single-post/:id', dashboardController.showSinglePost);
+router.get('/single-post/:id', withAuth, dashboardController.showSinglePost);
 
-router.get('/dashboard', dashboardController.showAllUserPosts);
-
-// router.get('/logout', (req, res) => {
-//   //res.render('homepage');
-// });
+router.get('/dashboard', withAuth, dashboardController.showAllUserPosts);
 
 router.get('/register', (req, res) => {
   res.render('register');

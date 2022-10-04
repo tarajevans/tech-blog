@@ -7,6 +7,8 @@ const dashboardController = {
             title: req.body.title,
             content_txt: req.body.content_txt,
             user_id: req.session.user_id,
+        }).then((results) => {
+            res.json(results);
         }).catch((err) => {
             console.log(err);
             res.status(500).json(err);
@@ -55,9 +57,14 @@ const dashboardController = {
              raw:true,
              nest: true,
         }).then((posts) => {
-            console.log(posts);
+            for (let i = 0; i < posts.length; i++){
+                Comment.findAll({
+                    where: {post_id:posts[i].id}
+                }).then((postComments) => {
+                    Object.assign(posts[i], {commentCount: postComments.length});
+                })
+            }
             res.render('dashboard', {posts});
-            // res.render('homepage', posts);
         }).catch((err) => {
             console.log(err);
             res.status(500).json(err);
@@ -65,7 +72,58 @@ const dashboardController = {
     },
 
     editPost: (req,res) => {
+        Post.update({
+            ...req.body
+        },
+        {
+            where: {
+                id: req.params.id,
+            }
+        }).then((status) => {
+        res.json(status);
+    }).catch((err) => {
+        res.status(500).json(err);
+    })
+    },
 
+    loadEditPost: (req, res) => {
+        Post.findByPk((req.params.id), {
+            include:[{
+                model: User,
+                attributes: ["username"],
+                required: true,
+            }],
+             raw:true,
+             nest: true,
+        }).then((singlePost) => {
+            Comment.findAll({
+                where:{post_id:req.params.id},
+                include:{
+                    model:User, 
+                    attributes:["username"]
+                },
+                nest:true,
+                raw:true,
+            }).then((postComments) => {
+            Object.assign(singlePost, {commentCount: postComments.length});
+                res.render('edit-post', {singlePost, postComments});
+            })
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+          })
+    },
+
+    deletePost: (req, res) => {
+        Post.destroy({
+            where: {
+                id: req.params.id,
+            }
+        }).then((result) => {
+                res.json(result);
+            }).catch((err) => {
+            res.status(500).json(err);
+        });
     },
 
     showAllPostsHomepage: (req, res) => {
@@ -79,16 +137,14 @@ const dashboardController = {
              raw:true,
              nest: true,
         }).then((posts) => {
-            for (let i = 0; i<posts.length; i++){
+            for (let i = 0; i < posts.length; i++){
                 Comment.findAll({
                     where: {post_id:posts[i].id}
                 }).then((postComments) => {
                     Object.assign(posts[i], {commentCount: postComments.length});
                 })
             }
-            // console.log(posts.dataValues.user);
             res.render('homepage', {posts});
-            // res.render('homepage', posts);
         }).catch((err) => {
             console.log(err);
             res.status(500).json(err);
@@ -96,16 +152,48 @@ const dashboardController = {
     },
 
     createComment: (req, res) => {
-        console.log(req.body);
         Comment.create({
             comment_text: req.body.comment_text,
             user_id: req.session.user_id,
             post_id: req.body.post_id,
+        }).then((result) => {
+            res.json(result);
         }).catch((err) => {
             console.log(err);
             res.status(500).json(err);
           });
-    }
+    },
+
+    editComment: (req, res) => {
+            Comment.update({
+                    ...req.body
+                },
+                {
+                    where: {
+                        id: req.params.id,
+                    }
+                }).then((updatedComment) => {
+                res.json(updatedComment);
+            }).catch((err) => {
+                res.status(500).json(err);
+            })
+    },
+
+    deleteComment: (req, res) => {
+        Comment.findByPk((req.params.id),{
+            attributes: ["post_id"]
+        }).then((postId) => {
+            Comment.destroy({
+                where: {
+                    id: req.params.id,
+                }
+            }).then((result) => {
+                res.json(result);
+            }).catch((err) => {
+                res.status(500).json(err);
+            });
+        })
+    },
 
 } 
 
