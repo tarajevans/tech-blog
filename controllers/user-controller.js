@@ -12,6 +12,8 @@ const userController = {
             req.session.username = userData.username;
             req.session.loggedIn = true;
             req.session.save();
+        }).then((result) => {
+          res.json(result);
         }).catch((err) => {
             console.log(err);
             res.status(500).json(err);
