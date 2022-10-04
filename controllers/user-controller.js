@@ -14,7 +14,8 @@ const userController = {
             req.session.save();
         }).then((result) => {
           res.json(result);
-        }).catch((err) => {
+        })
+        .catch((err) => {
             console.log(err);
             res.status(500).json(err);
         })
@@ -39,15 +40,11 @@ const userController = {
               res.status(400).json({ message: "Incorrect password!" });
               return;
             }
-            // req.session.save(() => {
               req.session.user_id = dbUserData.id;
               req.session.username = dbUserData.username;
               req.session.email = dbUserData.email;
               req.session.loggedIn = true;
               req.session.save();
-            
-              // });
-            console.log(req.session.email + ' ' + req.session.username + ' ' + req.session.user_id + ' ' + 'Line 47');
               res.json({
                 user: dbUserData.username,
                 message: "You are now logged in",
