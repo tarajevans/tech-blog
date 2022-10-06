@@ -1,36 +1,42 @@
-<article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{singlePost.title}}" />
-    </div>
-    <div>
-      <input name="post-content" type="text" value="{{singlePost.content_txt}}" />
-    </div>
-    <div>
-        by you on {{format_date singlePost.createdAt}}
-      |
-      <a href="/post/{{singlePost.id}}">{{singlePost.commentCount}} {{format_plural "comment" singlePost.commentCount}}</a>
-    </div>
-    <button class="hero-form" type="submit">Save post</button>
-   <button id="btnDeletePost_{{singlePost.id}}" onclick="deletePost({{singlePost.id}})">DELETE</button>
-  </form>
-</article>
-
-<form class="CHANGE">
-  <div>
-
-    <textarea required minlength="3" name="comment-body" id="comment_body"></textarea>
-
-  </div>
-
-  <div>
-    <button class="hero-form" id="create-comment-btn">add comment</button>
-  </div>
-</form>
+<container>
+  <row>
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title"><span>Edit Post</span></h2>
+      </div>
+      <div class="card-body">
+          <ul id="login-form" class="login-form">
+            <li>
+              <label for="post-title">Title</label><br>
+              <input class="login-form" id="post-title" type="text" value="{{singlePost.title}}" />
+            </li>
+            <li>
+              <label for="post-content">Body</label><br>
+              <input class="login-form" id="post-content" type="text" value="{{singlePost.content_txt}}" />
+            </li>
+            <li>
+              by you on 
+              {{format_date singlePost.createdAt}}
+              <a href="/post/{{singlePost.id}}">{{singlePost.commentCount}} {{format_plural "comment" singlePost.commentCount}}</a>
+            </li>
+            <li>
+              <button class="button" id="btnSavePost" type="submit">Save</button><br>
+            </li>
+            <li>
+            <button class="button" id="btnDeletePost_{{singlePost.id}}" onclick="deletePost({{singlePost.id}})">Delete</button><br>
+            </li>
+            <li>
+              <textarea class="login-form" required minlength="3" name="comment-body" id="comment_body"></textarea>
+            </li>
+            <li>
+              <button class="post-btn" id="create-comment-btn">Add Comment
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </row>
+</container>
 
 {{#each postComments as |comments|}}
 {{> comments comments}}

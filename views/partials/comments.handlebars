@@ -1,15 +1,33 @@
-<section class="CHANGE">
-    <div class="meta">
-      {{user.username}} on {{format_date createdAt}}
-    </div>
-    <div id="comment_text_div_{{id}}" class="text">
-      {{comment_text}}
-    </div>
-      <textarea minlength="3" style="display: none" name="comment_text_area_{{id}}" id="comment_text_area_{{id}}" cols="30" rows="10">{{comment_text}}</textarea>
-      {{#if showButtons}}
-      <div class="hero-form">
-          <button id="btnEdit_{{id}}" onclick="edit({{id}})">EDIT</button>
-          <button id="btnDelete_{{id}}" onclick="del({{id}})">DELETE</button>
+<container>
+  <row>
+    <div class="card">
+      <div class="card-header">
+        <div class="meta">
+          {{user.username}} on {{format_date createdAt}}
+        </div>
+        <div class="card-body">
+        <div id="comment_text_div_{{id}}" class="text">
+          {{comment_text}}
+        </div class="login-form">  
+        <textarea minlength="3" style="display: none" name="comment_text_area_{{id}}" id="comment_text_area_{{id}}" cols="30" rows="10">
+          {{comment_text}}
+        </textarea><br>
+        </div>   
+        {{#if showButtons}}
+        <div class="button">
+          <button class="login-btn" id="btnEdit_{{id}}" onclick="edit({{id}})"> + Update Comment</button><br>
+          <button class="login-btn" id="btnDelete_{{id}}" onclick="del({{id}})"> - Delete Comment</button><br>
+        </div>
+        {{/if}}
       </div>
-      {{/if}}
-  </section>
+    </div>
+  </row>
+</container>
+
+
+
+
+
+
+
+

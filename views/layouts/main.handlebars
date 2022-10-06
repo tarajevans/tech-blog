@@ -9,38 +9,31 @@
     <link rel="stylesheet" href="../styles/style.css">
     <title>Tech Blog</title>
   </head>
+
   <header>
-
-
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-      <li class="nav-item">
-        <a class="nav-link home" href="/home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link dashboard" href="/dashboard">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link login" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        {{!-- <a class="nav-link logout" href="/logout">Logout</a> --}}
-        <button id="logout">Log Out</button>
-      </li>
-    </ul>
-        <h1 class="card-title" href="/"><span>The Tech Blog</span></h1>
-  </div>
-</div>
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/dashboard">Dashboard</a>
+          </li>
+          {{#if session.loggedIn}}
+          <li class="nav-item">
+            <a href="/logout" id="logout">Logout</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a href="/login" id="login">Login</a>
+          </li>
+          {{/if}}
+        </ul>
+            <h1 class="card-title" href="/"><span>The Tech Blog</span></h1>
+      </div>
+    </div>
 </header>
-
-                {{!-- {{#if loggedIn}} --}}
-
-                {{!-- {{else}}
-                    <li>
-                        <a href="/login"></a>
-                    </li>
-                {{/if}} --}}
 
   <body>
     {{{body}}}

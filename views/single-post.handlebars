@@ -1,21 +1,15 @@
 {{> single-post-part singlePost}}
 <div>
-<form class="CHANGE">
-  <div>
-
+  <div class="login-form">
     <textarea required minlength="3" name="comment-body" id="comment_body"></textarea>
-
   </div>
-
-  <div>
-    <button class="hero-form" id="create-comment-btn">add comment</button>
+  <div class="button">
+    <button id="create-comment-btn">add comment</button>
   </div>
-</form>
-
-<div class="comments">
+  <div class="comments">
     {{#each postComments as |comments|}}
-{{> comments comments}}
+    {{> comments comments}}
     {{/each}}
-</div>
+  </div>
 </div>
 <script src="/javascript/comment.js"></script>

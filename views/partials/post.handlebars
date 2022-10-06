@@ -1,22 +1,20 @@
-<a href="/edit-post/{{id}}">
-  <li>
-    <article class="blog-post">
-      <container><data postId="{{id}}"></data>
-        <row>
-          <div class="card">
-            <div class="card-header">
-              <div class="title"><h2>{{title}}</h2>
-                by {{user.username}} on {{format_date createdAt}}
-              </div>
-                <div class="card-body">
-                  <div class="meta">
-                    {{content_txt}}<br><br>
-                    {{commentCount}} {{format_plural "comment" commentCount}}
-                  </div>
-                </div>
+<a class="single-post" href="/edit-post/{{id}}">
+  <container>
+    <data postId="{{id}}"></data>
+    <row>
+      <div class="card">
+        <div class="card-header">
+          <div class="title"><h2>{{title}}</h2>
+            <div class="meta">
+              by {{user.username}} on {{format_date createdAt}}
             </div>
           </div>
-        </row>
-      </container>
-    </article>
-  </li>
+          <div class="card-body">
+            {{content_txt}}<br><br>
+            {{commentCount}} {{format_plural "comment" commentCount}}
+          </div>
+        </div>
+      </div>
+    </row>
+  </container>
+</a>

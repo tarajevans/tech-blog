@@ -66,6 +66,7 @@ const postController = {
              raw:true,
              nest: true,
         }).then((posts) => {
+            posts=posts.reverse();
             for (let i = 0; i < posts.length; i++){
                 Comment.findAll({
                     where: {post_id:posts[i].id}
@@ -155,6 +156,7 @@ const postController = {
              raw:true,
              nest: true,
         }).then((posts) => {
+            posts=posts.reverse();
             for (let i = 0; i < posts.length; i++){
                 Comment.findAll({
                     where: {post_id:posts[i].id}
