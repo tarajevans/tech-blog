@@ -4,8 +4,6 @@ const sequelize = require("./config/connection");
 const routes = require("./routes");
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const {Post, User, Comment} = require ("./models");
-
 
 const path = require("path");
 

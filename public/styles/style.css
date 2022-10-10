@@ -105,7 +105,7 @@ text-align: right;
 }
 a {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   padding: 10px 15px;
   font-size: 1.5rem;
 }
