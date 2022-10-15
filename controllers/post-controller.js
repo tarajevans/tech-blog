@@ -36,14 +36,13 @@ const postController = {
                 nest:true,
                 raw:true,
             }).then((postComments) => {
+                Object.assign(singlePost, {commentCount: postComments.length});
                 for(let i = 0; i < postComments.length; i++){
                     if (postComments[i].user_id == req.session.user_id || singlePost.user_id == req.session.user_id){
                         Object.assign(postComments[i], {showButtons: true});
                     }else{
                         Object.assign(postComments[i], {showButtons: false});
                     }
-                    // }
-                    console.log(postComments);
                 }
                 res.render('single-post', {singlePost, postComments});
             })
@@ -121,8 +120,6 @@ const postController = {
                     }else{
                         Object.assign(postComments[i], {showButtons: false});
                     }
-                    // }
-                    console.log(postComments);
                 }
             Object.assign(singlePost, {commentCount: postComments.length});
                 res.render('edit-post', {singlePost, postComments});

@@ -9,7 +9,7 @@ const path = require("path");
 
 // Initialize (create) the express object.
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 const helpers = require("./utils/helpers");
 
@@ -38,7 +38,6 @@ app.use(session(sess));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(function(req, res, next){
   res.locals.session = req.session;
-  console.log(res.locals.session);
   next();
 });
 // turn on routes
