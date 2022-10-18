@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kielth/tech-blog.git"
+    "url": "git+https://github.com/tarajevans/tech-blog.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kielth/tech-blog/issues"
+    "url": "https://github.com/tarajevans/tech-blog/issues"
   },
-  "homepage": "https://github.com/Kielth/tech-blog#readme",
+  "homepage": "https://github.com/tarajevans/tech-blog#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.5",
