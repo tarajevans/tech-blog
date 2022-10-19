@@ -18,6 +18,8 @@ sequelize: 6.23.1<br><br>
 
 In bash run npm start and view in localhost in your browser
 
-Heroku Live App: https://dashboard.heroku.com/apps/tech-blog-tje
+Heroku Live App: https://tech-blog-tje.herokuapp.com/
+
+
 
 
